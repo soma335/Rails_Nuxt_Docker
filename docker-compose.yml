@@ -9,17 +9,17 @@ services:
     environment:
       POSTGRES_HOST_AUTH_METHOD: "trust"
   nuxt:
-    build: ./front-end
+    build: front
     command: bash -c "yarn run dev"
     volumes:
-      - './front-end:/nuxtapp'
+      - './front:/nuxtapp'
     ports:
       - '3000:3000'
   rails:
-    build: ./back-end
+    build: back
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 8080 -b '0.0.0.0'"
     volumes:
-      - './back-end:/railsapp'
+      - './back:/railsapp'
     ports:
       - '8080:8080'
     depends_on:

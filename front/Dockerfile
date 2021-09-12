@@ -1,4 +1,4 @@
-FROM node:12.16.1
+FROM node:16.9.1
 
 RUN apt-get update -qq
 
